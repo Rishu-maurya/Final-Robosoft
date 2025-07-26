@@ -1,0 +1,144 @@
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/solar-panels-2458717.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: brightness(1.3);
+  z-index: -1;
+}
+
+body {
+ font-family: 'Times New Roman', Times, serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  position: relative;
+}
+
+nav.top-nav {
+  background-color: rgba(255, 255, 255, 0.731);
+  border-bottom: 1px solid #ccc;
+}
+
+nav.top-nav ul {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 30px;
+  margin: 0;
+  list-style: none;
+}
+
+nav.top-nav ul li {
+  margin-left: 20px;
+}
+
+nav.top-nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav.top-nav ul li a:hover {
+  color: #555;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.profile-card {
+  background-color: rgba(255, 255, 255, 0.829);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.profile-form .form-group {
+  margin-bottom: 15px;
+}
+
+.profile-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.profile-form input,
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.profile-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+.dashboard-btn {
+  display: inline-block;
+  margin-top: 15px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.dashboard-btn:hover {
+  text-decoration: underline;
+}

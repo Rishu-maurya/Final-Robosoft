@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Profile Page</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <ul>
+      <li><a href="desboard.html">Dashboard</a></li>
+      <li><a href="devices.html">Device</a></li>
+      <li><a href="report.html">Report</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="card-header">
+        <h2>User Profile</h2>
+        <button class="logout-btn">Logout</button>
+      </div>
+
+      <form class="profile-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number" />
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country">
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Germany</option>
+            <option>Australia</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bio">Short Bio</label>
+          <textarea id="bio" placeholder="Write something about yourself..."></textarea>
+        </div>
+
+        <button class="submit-btn" type="submit">Update Profile</button>
+        <a href="desboard.html" class="dashboard-btn">← Back to Dashboard</a>
+        
+      </form>
+    </div>
+  </div>
+</body>
+</html>

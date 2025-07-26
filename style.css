@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --lightBulue: #17a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('assets/solar-panels-2458717.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body::before {
+  filter: blur(150px);
+  z-index: -1;
+}
+
+.wrapper {
+  position: relative;
+  width: 900px; /* Updated */
+  height: 600px; /* Updated */
+  background: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--black);
+  overflow: hidden;
+  display: flex;
+}
+
+/* ---- FORM BOXES ---- */
+.wrapper .form-box.login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0 70px 0 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+  transition: transform 0.7s ease, opacity 0.7s ease, filter 0.7s ease;
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.wrapper .form-box.register {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0 50px 0 70px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform 0.7s ease, opacity 0.7s ease, filter 0.7s ease;
+  transform: translateX(120%);
+  opacity: 1;
+  filter: blur(10px);
+}
+
+.wrapper.active .form-box.login {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wrapper.active .form-box.register {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+/* ---- FORM HEADINGS ---- */
+.form-box h2 {
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 32px;
+  color: var(--black);
+  text-align: center;
+}
+
+.form-box h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 4px;
+  background: var(--black);
+}
+
+/* ---- INPUT BOX ---- */
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--black);
+  transition: .5s;
+  padding-right: 23px;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-bottom-color: var(--lightBulue);
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--black);
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+  color: var(--lightBulue);
+}
+
+.input-box i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ i,
+.input-box input:valid ~ i {
+  color: var(--lightBulue);
+}
+
+/* ---- BUTTON ---- */
+form button {
+  width: 100%;
+  height: 45px;
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+form button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ---- LINKS ---- */
+.linkTxt {
+  font-size: 14px;
+  color: var(--black);
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.linkTxt p a {
+  color: blue;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---- FORGOT PASSWORD ---- */
+.forgot-password {
+  display: inline-block;
+  color: #2d01a3;
+  font-size: 13px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+
+.forgot-password::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #220595;
+  transition: 0.3s;
+}
+
+.forgot-password:hover {
+  color: #0a40f3;
+}
+
+.forgot-password:hover::after {
+  width: 100%;
+}
+
+/* ---- GOOGLE BUTTON ---- */
+.google-btn {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  margin-top: 15px;
+}
+
+.google-btn img {
+  height: 1px;
+  width: 1px;
+}
+
+.google-btn span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.google-btn:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ---- ANIMATIONS ---- */
+.animation {
+  transform: translateX(0);
+  transition: 0.7s ease;
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .form-box.login .animation {
+  transform: translateX(-120%);
+  opacity: 0;
+  filter: blur(10px);
+  transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper.active .form-box.register .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: calc(.1s * var(--i));
+}
+
+/* ---- INFO TEXTS ---- */
+.wrapper .info-text {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrapper .info-text.login {
+  right: 0;
+  text-align: right;
+  padding: 0 40px 60px 150px;
+}
+
+.wrapper .info-text.register {
+  left: 0;
+  text-align: left;
+  padding: 0 150px 60px 40px;
+  pointer-events: none;
+}
+
+.wrapper.active .info-text.register {
+  pointer-events: auto;
+}
+
+.wrapper .info-text h2 {
+  font-size: 36px;
+  color: var(--white);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.wrapper .info-text p {
+  font-size: 16px;
+  color: var(--white);
+}
+
+.wrapper .info-text.login .animation,
+.wrapper .info-text.register .animation {
+  transition: 0.7s ease;
+  transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper.active .info-text.login .animation {
+  transform: translateX(120px);
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.wrapper.active .info-text.register .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* ---- ROTATE BGs ---- */
+.rotate-bg {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 1100px;
+  height: 700px;
+  background: #000;
+  transform: rotate(15deg) skewY(31deg);
+  transform-origin: bottom right;
+  transition: 1.5s ease;
+  transition-delay: 1.6s;
+}
+
+.wrapper.active .rotate-bg {
+  transform: rotate(0) skewY(0);
+  transition-delay: 0.5s;
+}
+
+.rotate-bg2 {
+  position: absolute;
+  top: 100%;
+  left: 300px;
+  width: 950px;
+  height: 1000px;
+  background: var(--white);
+  transform: rotate(0) skewY(0);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: 0.5s;
+}
+
+.wrapper.active .rotate-bg2 {
+  transform: rotate(-3deg) skewY(-60deg);
+  transition-delay: 1.2s;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    box-shadow: none;
+    border: none;
+  }
+
+  .form-box,
+  .info-text {
+    position: relative;
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .wrapper .form-box.login,
+  .wrapper .form-box.register {
+    padding: 30px 20px;
+  }
+
+  .wrapper .info-text.login,
+  .wrapper .info-text.register {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .rotate-bg,
+  .rotate-bg2 {
+    display: none;
+  }
+
+  .wrapper.active .form-box.login,
+  .wrapper.active .form-box.register {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .animation {
+    all: unset;
+  }
+}

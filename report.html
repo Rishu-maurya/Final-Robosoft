@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Report</title>
+    <link rel="stylesheet" href="report.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="top-nav">
+    <ul>
+      <li><a href="desboard.html">Dashboard</a></li>
+      <li><a href="devices.html">Device</a></li>
+      <li><a href="report.html">Report</a></li>
+      <li><a href="about.html">About us</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+  
+    <div class="report-container">
+        <header>
+            <h1>Solar Report</h1>
+            <div class="date-toggle">
+                <button onclick="updateChart('day')">Day</button>
+                <button onclick="updateChart('month')">Month</button>
+                <button onclick="updateChart('year')">Year</button>
+                <button onclick="updateChart('total')">Total</button>
+            </div>
+            <div class="date-display">29/06/2025</div>
+            <div class="solar-power">🔵 Solar Power: <strong>70 W</strong></div>
+        </header>
+
+        <section class="chart-section">
+            <canvas id="solarChart" style="height: 200px;"></canvas>
+        </section>
+
+        <section class="daily-production">
+            <div class="label">🔷 Daily Production:</div>
+            <div class="value">540 Wh</div>
+        </section>
+
+        <section class="statistics">
+            <h2>Flexible Statistics</h2>
+            <button class="setup-button">Start Setup ➤</button>
+            <div class="info-box">⚠ Customize the time period to flexibly match monthly electricity bill data!</div>
+        </section>
+
+        <section class="current-cycle">
+            <h3>Current Cycle</h3>
+            <p>01/06/2025 ~ 01/07/2025</p>
+            <div class="cycle-stats">
+                <div>📅 Solar Production: <strong>1.5 MWh</strong></div>
+                <div>🏠 Energy Consumed: <strong>888 kWh</strong></div>
+                <div>🛒 Energy Purchased: <strong>2.22 MWh</strong></div>
+            </div>
+        </section>
+
+        <section class="operation-stats">
+            <h2>Operation Statistics ❔</h2>
+            <div class="stats-grid">
+                <div>⏱ Running Days <strong>22 day</strong></div>
+                <div>🛒 Total Purchase <strong>0 kWh</strong></div>
+                <div>⚡ Total Production <strong>372 kWh</strong></div>
+                <div>🌿 CO2 Reduction <strong>294.99 kg</strong></div>
+                <div>🍃 Equivalent tree planting <strong>20 trees</strong></div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('solarChart').getContext('2d');
+        let chartData = {
+            day: [0, 100, 250, 500, 300, 0, 70],
+            month: [150, 300, 400, 250, 100, 500, 700],
+            year: [500, 400, 600, 800, 300, 200, 1000],
+            total: [1000, 1500, 2000, 2200, 2500, 3000, 3500]
+        };
+
+        const solarChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                datasets: [{
+                    label: 'Solar Power (W)',
+                    data: chartData.day,
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function updateChart(type) {
+            solarChart.data.datasets[0].data = chartData[type];
+            solarChart.update();
+        }
+    </script>
+</body>
+</html>
